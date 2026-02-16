@@ -5,9 +5,21 @@ import {
   GitBranch, 
   ArrowUp, 
   Download, 
-  Cpu, 
-  Layers, 
-  GitCommit, 
+  Users, 
+  Globe, 
+  Puzzle, 
+  Shield, 
+  Layout, 
+  HardDrive,
+  MessageSquare,
+  Bot,
+  CheckCircle,
+  Terminal,
+  Folder,
+  Database,
+  Zap,
+  Brain,
+  Map,
   Github,
   RefreshCw
 } from 'lucide-react';
@@ -35,9 +47,75 @@ export default function Home() {
     setTimeout(() => setIsPushing(false), 2000);
   };
 
+  const features = [
+    {
+      title: "Agent Delegation",
+      description: "Not one assistant — a team. The main agent distributes tasks across sub-agents: in parallel, in the background, with prioritization.",
+      icon: Users
+    },
+    {
+      title: "Multi-Provider",
+      description: "Anthropic Claude, OpenRouter, GitHub Copilot — connect any LLM through a unified account interface.",
+      icon: Globe
+    },
+    {
+      title: "Plugin Architecture",
+      description: "Everything is a plugin: terminal, git, file explorer, MCP servers. Declarative manifests, typed SDK.",
+      icon: Puzzle
+    },
+    {
+      title: "Smart Permissions",
+      description: "Three-layer security: sandbox broker, command preflight checks, policy engine with approve/deny/ask per tool.",
+      icon: Shield
+    },
+    {
+      title: "Familiar Interface",
+      description: "VSCode-like layout: sidebars, dock panels, tabs with drag-and-drop. Everything you're used to — but with AI at the core.",
+      icon: Layout
+    },
+    {
+      title: "Local & Private",
+      description: "Your data stays on your machine. No cloud dependencies for core functionality. File-based storage, no telemetry.",
+      icon: HardDrive
+    }
+  ];
+
+  const steps = [
+    {
+      title: "Describe the task",
+      description: "Write what you need in natural language. Attach files, reference code, provide context.",
+      icon: MessageSquare
+    },
+    {
+      title: "Agent takes over",
+      description: "The orchestrator assembles context, tools, and prompts. The AI agent writes code, runs commands, reads files.",
+      icon: Bot
+    },
+    {
+      title: "Delegation kicks in",
+      description: "Complex tasks are distributed across sub-agents — running in parallel, reporting back to the main agent.",
+      icon: Users
+    },
+    {
+      title: "Review the result",
+      description: "Diffs in the editor, output in the terminal, response in chat. Approve, reject, or iterate.",
+      icon: CheckCircle
+    }
+  ];
+
+  const plugins = [
+    { name: "Terminal", icon: Terminal, desc: "Integrated terminal" },
+    { name: "Git", icon: GitBranch, desc: "Branches, commits, diffs" },
+    { name: "Explorer", icon: Folder, desc: "Project file tree" },
+    { name: "MCP", icon: Database, desc: "Model Context Protocol" },
+    { name: "Skills", icon: Zap, desc: "Prompt packs & rules" },
+    { name: "Memories", icon: Brain, desc: "Knowledge base" },
+    { name: "Plan", icon: Map, desc: "Task management" },
+  ];
+
   return (
     <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors duration-200 font-sans">
-      {/* Git Branch Header Mockup */}
+      {/* Header */}
       <header className="h-[52px] border-b border-black/10 dark:border-white/10 flex items-center justify-between px-6 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md z-50">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 font-mono text-sm">
@@ -78,8 +156,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl lg:text-7xl font-semibold tracking-tight mb-6"
             >
-              Zrow: The Intent-Driven <br/>
-              <span className="font-mono opacity-40 italic">AI Orchestrator.</span>
+              Your Code. <br/>
+              Your Agents. <br/>
+              <span className="font-mono opacity-40 italic">Your Rules.</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -87,8 +166,8 @@ export default function Home() {
               transition={{ delay: 0.1 }}
               className="text-xl lg:text-2xl opacity-60 mb-10 leading-relaxed"
             >
-              No fluff. High-load ready. <br/>
-              Distributed by design for engineering excellence.
+              A desktop IDE where AI agents are first-class citizens.
+              Local, extensible, private.
             </motion.p>
             
             <div className="flex flex-col gap-6">
@@ -120,73 +199,61 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Feature Showcase */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
-          {/* Distributed Execution */}
-          <div className="border border-black/10 dark:border-white/10 p-8 rounded-lg flex flex-col gap-6">
-            <div className="flex items-center gap-3">
-              <Cpu className="w-6 h-6" />
-              <h3 className="text-xl font-medium uppercase tracking-tight">Distributed Execution</h3>
-            </div>
-            <div className="bg-black/5 dark:bg-white/5 p-4 rounded font-mono text-xs overflow-hidden leading-relaxed">
-              <div className="flex gap-2 mb-1">
-                <span className="opacity-30">10:24:01</span>
-                <span className="text-green-500">INFO</span>
-                <span className="opacity-70">Agent connected to remote worktree:</span>
+        {/* Features Grid */}
+        <section className="mb-32">
+          <h2 className="text-sm font-mono uppercase tracking-widest opacity-50 mb-12">Core Capabilities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, i) => (
+              <div key={i} className="border border-black/10 dark:border-white/10 p-6 rounded-lg hover:border-black/30 dark:hover:border-white/30 transition-colors">
+                <feature.icon className="w-8 h-8 mb-4 opacity-80" />
+                <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
+                <p className="opacity-60 text-sm leading-relaxed">{feature.description}</p>
               </div>
-              <div className="flex gap-2 mb-1 pl-4">
-                <span className="opacity-30">10:24:01</span>
-                <span className="opacity-90 underline">node-ae21.zrow.io</span>
-              </div>
-              <div className="flex gap-2 mb-1">
-                <span className="opacity-30">10:24:02</span>
-                <span className="text-blue-500">SYNC</span>
-                <span className="opacity-70">Context window aligned. (4096 tokens)</span>
-              </div>
-              <div className="flex gap-2 animate-pulse">
-                <span className="opacity-30">10:24:03</span>
-                <span className="opacity-40">_</span>
-              </div>
-            </div>
-            <p className="opacity-60 text-sm leading-relaxed">
-              Scale your intent across multiple environments. Zrow handles the heavy lifting of context synchronization and remote tool execution.
-            </p>
+            ))}
           </div>
+        </section>
 
-          {/* Unified Tools & Git Integrated */}
-          <div className="grid grid-rows-2 gap-12">
-            <div className="flex flex-col gap-4">
-              <h3 className="text-xl font-medium uppercase tracking-tight flex items-center gap-3">
-                <Layers className="w-6 h-6" />
-                Unified Providers
-              </h3>
-              <div className="grid grid-cols-3 gap-4 py-4">
-                {[
-                  { name: 'OpenAI', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg' },
-                  { name: 'Anthropic', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Anthropic_logo.svg' },
-                  { name: 'Google', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Cloud_Logo.svg' }
-                ].map((provider) => (
-                  <div key={provider.name} className="h-16 border border-black/10 dark:border-white/10 flex items-center justify-center group hover:border-black dark:hover:border-white transition-colors">
-                    <img 
-                      src={provider.url} 
-                      alt={provider.name} 
-                      className="h-6 opacity-60 group-hover:opacity-100 transition-opacity brightness-0 dark:invert"
-                    />
-                  </div>
-                ))}
+        {/* How It Works */}
+        <section className="mb-32">
+          <h2 className="text-sm font-mono uppercase tracking-widest opacity-50 mb-12">Workflow</h2>
+          <div className="relative border-l border-black/10 dark:border-white/10 ml-4 md:ml-0 md:border-l-0 md:grid md:grid-cols-4 gap-8">
+            {steps.map((step, i) => (
+              <div key={i} className="mb-12 md:mb-0 ml-8 md:ml-0 relative">
+                <span className="absolute -left-[37px] md:hidden w-4 h-4 rounded-full bg-black dark:bg-white border-4 border-white dark:border-black"></span>
+                <div className="mb-4 opacity-30 font-mono text-xs">Step 0{i + 1}</div>
+                <h3 className="text-lg font-medium mb-2">{step.title}</h3>
+                <p className="opacity-60 text-sm leading-relaxed">{step.description}</p>
               </div>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <h3 className="text-xl font-medium uppercase tracking-tight flex items-center gap-3">
-                <GitCommit className="w-6 h-6" />
-                Git-Integrated
-              </h3>
-              <p className="opacity-60 text-sm leading-relaxed">
-                Deep worktree management. Zrow understands your branches, commits, and diffs, making AI-driven development feel native to your flow.
-              </p>
-            </div>
+            ))}
           </div>
+        </section>
+
+        {/* Built-in Plugins */}
+        <section className="mb-32">
+          <h2 className="text-sm font-mono uppercase tracking-widest opacity-50 mb-12">Built-in Plugins</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            {plugins.map((plugin, i) => (
+              <div key={i} className="border border-black/10 dark:border-white/10 p-4 rounded-lg flex flex-col items-center text-center gap-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <plugin.icon className="w-6 h-6 opacity-60" />
+                <span className="font-medium text-sm">{plugin.name}</span>
+                <span className="text-[10px] opacity-40 leading-tight">{plugin.desc}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Closing CTA */}
+        <section className="text-center py-20 border-t border-black/10 dark:border-white/10">
+          <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight mb-6">
+            AI coding without compromise.
+          </h2>
+          <p className="text-xl opacity-60 mb-10 max-w-2xl mx-auto">
+            Stop switching between your IDE and AI chat. <br/>
+            Zrow brings agents directly into your workflow.
+          </p>
+          <button className="h-12 px-8 bg-black text-white dark:bg-white dark:text-black rounded font-medium hover:opacity-90 transition-opacity">
+            Get Early Access
+          </button>
         </section>
       </main>
 

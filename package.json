@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Zrow Engineering Edition Landing Page",
   "scripts": {
-    "build": "echo 'skipping build...'",
+    "build": "mkdir -p public && cp index.html public/ 2>/dev/null || true && cp style.css public/ 2>/dev/null || true",
     "deploy": "npx wrangler pages deploy public"
   },
   "devDependencies": {

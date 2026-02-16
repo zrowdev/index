@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zrow | The Intent-Driven AI Orchestrator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-200">
+    <!-- Git Branch Header Mockup -->
+    <header class="h-[52px] border-b border-black/10 dark:border-white/10 flex items-center justify-between px-6 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md z-50">
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 font-mono text-sm">
+                <i data-lucide="git-branch" class="w-4 h-4"></i>
+                <span class="opacity-60">zrow /</span>
+                <span class="font-medium">main</span>
+            </div>
+            <div class="flex items-center gap-1.5 ml-2">
+                <span class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+                <span class="text-[10px] uppercase tracking-widest font-mono opacity-50">System Online</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="h-8 px-3 border border-black/10 dark:border-white/20 rounded flex items-center gap-2 text-sm hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                <span>Star</span>
+            </button>
+            <button id="push-button" class="h-8 px-3 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black rounded flex items-center gap-2 text-sm hover:opacity-80 transition-all">
+                <i id="push-icon" data-lucide="arrow-up" class="w-4 h-4"></i>
+                <span>Push</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-screen-xl mx-auto px-6 py-20 lg:py-32">
+        <!-- Hero Section -->
+        <section class="mb-32">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl lg:text-7xl font-semibold tracking-tight mb-6">
+                    Zrow: The Intent-Driven <br/>
+                    <span class="font-mono opacity-40 italic">AI Orchestrator.</span>
+                </h1>
+                <p class="text-xl lg:text-2xl opacity-60 mb-10 leading-relaxed">
+                    No fluff. High-load ready. <br/>
+                    Distributed by design for engineering excellence.
+                </p>
+                
+                <div class="flex flex-col gap-6">
+                    <button class="cta-button group w-fit h-14 px-8 border-2 border-black dark:border-white flex items-center gap-4 text-lg font-medium transition-all relative overflow-hidden">
+                        <span>Download for macOS</span>
+                        <i data-lucide="download" class="w-5 h-5 group-hover:translate-y-0.5 transition-transform"></i>
+                    </button>
+                    
+                    <div id="thinking-indicator" class="flex items-center gap-3 font-mono text-sm opacity-40 min-h-[20px]">
+                        <span id="thinking-text" class="transition-opacity duration-500">Analyzing context...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Showcase -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
+            <!-- Distributed Execution -->
+            <div class="border border-black/10 dark:border-white/10 p-8 rounded-lg flex flex-col gap-6">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                    <h3 class="text-xl font-medium uppercase tracking-tight">Distributed Execution</h3>
+                </div>
+                <div class="bg-black/5 dark:bg-white/5 p-4 rounded font-mono text-xs overflow-hidden">
+                    <div class="flex gap-2 mb-1">
+                        <span class="opacity-30">10:24:01</span>
+                        <span class="text-green-500">INFO</span>
+                        <span class="opacity-70">Agent connected to remote worktree:</span>
+                    </div>
+                    <div class="flex gap-2 mb-1 pl-4">
+                        <span class="opacity-30">10:24:01</span>
+                        <span class="opacity-90 underline">node-ae21.zrow.io</span>
+                    </div>
+                    <div class="flex gap-2 mb-1">
+                        <span class="opacity-30">10:24:02</span>
+                        <span class="text-blue-500">SYNC</span>
+                        <span class="opacity-70">Context window aligned. (4096 tokens)</span>
+                    </div>
+                    <div class="flex gap-2 animate-pulse">
+                        <span class="opacity-30">10:24:03</span>
+                        <span class="opacity-40">_</span>
+                    </div>
+                </div>
+                <p class="opacity-60 text-sm leading-relaxed">
+                    Scale your intent across multiple environments. Zrow handles the heavy lifting of context synchronization and remote tool execution.
+                </p>
+            </div>
+
+            <!-- Unified Tools & Git Integrated -->
+            <div class="grid grid-rows-2 gap-12">
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-xl font-medium uppercase tracking-tight flex items-center gap-3">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                        Unified Providers
+                    </h3>
+                    <div class="provider-grid grid grid-cols-3 gap-4 py-4">
+                        <div class="h-16 border border-black/10 dark:border-white/10 flex items-center justify-center grayscale-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI" class="h-6 opacity-80">
+                        </div>
+                        <div class="h-16 border border-black/10 dark:border-white/10 flex items-center justify-center grayscale-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Anthropic_logo.svg" alt="Anthropic" class="h-6 opacity-80">
+                        </div>
+                        <div class="h-16 border border-black/10 dark:border-white/10 flex items-center justify-center grayscale-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_Cloud_Logo.svg" alt="Google" class="h-6 opacity-80">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h3 class="text-xl font-medium uppercase tracking-tight flex items-center gap-3">
+                        <i data-lucide="git-commit" class="w-6 h-6"></i>
+                        Git-Integrated
+                    </h3>
+                    <p class="opacity-60 text-sm leading-relaxed">
+                        Deep worktree management. Zrow understands your branches, commits, and diffs, making AI-driven development feel native to your flow.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Terminal Footer -->
+    <footer class="border-t border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 py-12 px-6">
+        <div class="max-w-screen-xl mx-auto font-mono text-xs flex flex-col gap-4">
+            <div class="flex items-center gap-4 opacity-40">
+                <span>$ git log --oneline -n 3</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="flex gap-4">
+                    <span class="text-yellow-500">a1b2c3d</span>
+                    <span class="opacity-60">feat: implement distributed context sync</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-yellow-500">e5f6g7h</span>
+                    <span class="opacity-60">fix: race condition in provider switching</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-yellow-500">i9j0k1l</span>
+                    <span class="opacity-60">docs: update architectural overview</span>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-black/5 dark:border-white/5 flex justify-between items-center opacity-40">
+                <span>&copy; 2026 Zrow Systems Inc.</span>
+                <span class="flex items-center gap-2">
+                    v0.4.2-alpha
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Push button interaction
+        const pushBtn = document.getElementById('push-button');
+        const pushIcon = document.getElementById('push-icon');
+        
+        pushBtn.addEventListener('click', () => {
+            const originalIcon = pushIcon.getAttribute('data-lucide');
+            pushIcon.setAttribute('data-lucide', 'refresh-cw');
+            pushIcon.classList.add('animate-spin');
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                pushIcon.setAttribute('data-lucide', originalIcon);
+                pushIcon.classList.remove('animate-spin');
+                lucide.createIcons();
+            }, 2000);
+        });
+
+        // Thinking Indicator logic
+        const thinkingText = document.getElementById('thinking-text');
+        const statuses = [
+            "Analyzing context...",
+            "Exploring possibilities...",
+            "Formulating response..."
+        ];
+        let statusIndex = 0;
+
+        function updateThinkingStatus() {
+            thinkingText.style.opacity = '0';
+            setTimeout(() => {
+                statusIndex = (statusIndex + 1) % statuses.length;
+                thinkingText.textContent = statuses[statusIndex];
+                thinkingText.style.opacity = '1';
+            }, 500);
+        }
+
+        setInterval(updateThinkingStatus, 3000);
+    </script>
+</body>
+</html>

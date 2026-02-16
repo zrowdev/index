@@ -1,0 +1,12 @@
+{
+  "name": "zrow-landing",
+  "version": "1.0.0",
+  "description": "Zrow Engineering Edition Landing Page",
+  "scripts": {
+    "build": "echo 'skipping build...'",
+    "deploy": "npx wrangler pages deploy public"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

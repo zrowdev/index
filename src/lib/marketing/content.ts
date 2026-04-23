@@ -2,7 +2,7 @@ export const heroContent = {
   title: "Zrow keeps AI agents inside your real coding workflow.",
   description:
     "A local-first desktop environment for people who want delegation, real tools, and explicit control over automation.",
-  primaryCta: "Join beta",
+  primaryCta: "Join Beta",
 } as const;
 
 export const capabilitiesContent = {

@@ -6,13 +6,16 @@ describe("HomePage", () => {
   it("renders the core beta funnel copy", () => {
     render(<HomePage />);
 
+    const cta = screen.getByRole("link", { name: /join beta/i });
+
     expect(
       screen.getByRole("heading", {
         level: 1,
         name: /zrow keeps ai agents inside your real coding workflow/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /join beta/i })).toBeInTheDocument();
+    expect(cta).toBeInTheDocument();
+    expect(cta).toHaveAttribute("href", "#waitlist");
     expect(screen.getByText(/limited beta/i)).toBeInTheDocument();
   });
 });

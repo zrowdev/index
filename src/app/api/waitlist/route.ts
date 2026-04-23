@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = await createWaitlistSubmission(parsed.data);
+    await createWaitlistSubmission(parsed.data);
 
     return NextResponse.json({
       ok: true,

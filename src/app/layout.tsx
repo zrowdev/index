@@ -15,7 +15,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Zrow Beta Waitlist",
-  description: "Join the early-access waitlist for Zrow.",
+  description:
+    "Join the limited beta waitlist for Zrow, a local-first desktop environment for AI delegation, real tools, and explicit control over automation.",
 };
 
 export default function RootLayout({

@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <main
       id="main-content"
-      className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-10 md:px-10 md:py-12"
+      className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-5 py-6 sm:px-6 md:px-10 md:py-8"
     >
       <Hero />
       <CapabilitiesSection />
